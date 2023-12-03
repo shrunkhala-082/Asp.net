@@ -1,0 +1,310 @@
+Q1.constructor..
+
+//Q1.create a class student with member variable name, maths, science, eng
+//reate a method which will return total marks[300]
+//Create a method which will display name and total.
+using System;
+namespace demo
+{
+  class Student
+    {
+        String name;
+        int maths;
+        int science;
+        int english;
+
+        public Student(String name,int maths,int science,int english)
+        {
+           this. name = name;
+            this.maths = maths;
+            this.science = science;
+            this.english = english;
+        }
+
+        public double Total()
+        {
+            double total;
+            total=maths+science+english;
+            return total;
+        }
+        public string display()
+        {
+
+            double total = Total();
+            return string.Format("name:{0} total:{1} /300", name,total );
+        }
+    }
+    
+
+    class main
+    {
+        public static void Main()
+        {
+
+            Student student = new Student("Rohit",73,89,98);
+
+            Console.WriteLine(student.display());
+
+
+        }
+    }
+}
+
+
+Q2..constructor
+
+
+/*Q2.create a class account having member name , id, balance
+Create a method -public void deposit(int amt) { balance = balance + amt}
+Create a method withdraw  -public void withdraw(int amt) { balance = balance - amt}
+Create display method which will display name and balance.
+Create 2 object and do transaction*/
+
+using System;
+
+namespace Demo
+{
+    class account
+    {
+        static int getid;
+        int id;
+        String name;
+       double balance;
+
+        public account(string name,double balance)
+        {
+            id = ++getid;
+            this.name = name;
+            this.balance = balance;
+        }
+
+        public double deposit(int amt)
+        {
+            balance = balance + amt;
+            return balance;
+        }
+
+        public double withdraw(int amt)
+        {
+            balance = balance - amt;
+            return balance;
+        }
+
+
+        public string display()
+        {
+            return string.Format("id:{0} name:{1} balance:{2}" , id,name, balance);
+        }
+    }
+
+
+    class Account
+    {
+        public static void Main()
+        {
+            account acount = new account("rahul", 1000000);
+
+            Console.WriteLine(acount.withdraw(1000));
+
+            Console.WriteLine(acount.display());
+
+
+            account acc = new account("mayuri", 9999999999);
+            Console.WriteLine(acc.deposit(1));
+            Console.WriteLine(acc.display());
+        }
+    }
+
+}    
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q3. 
+
+
+/*Create class Employee with private vatiable id name salary, netsalary
+Create method public double Calculatesal()
+Which will return net salary. Netsalary= salary-salary*10%
+Create method display which will display Name and net salary.
+Create 3 object of a class and call display method.*/
+
+
+using System;
+using System.CodeDom;
+
+namespace demo
+{
+   class Employee
+    {
+        int id;
+        static int getid;
+        string name;
+        double salary;
+    //    double netsalary;
+
+        public Employee(string name ,double salary)
+        {
+            id = ++getid;
+            this.name = name;
+           
+            this.salary = salary;
+        }
+
+        public double calculatesal( )
+        {
+            double netsalary;
+            netsalary = salary - salary * 0.1;
+            return netsalary;
+        }
+
+        public string display()
+        {
+            double Netsalary = calculatesal();
+            return string.Format("id:{0} name :{1} Netsalary :{2}",id, name ,Netsalary );
+        }
+    }
+
+    class Emp
+    {
+        static void Main()
+        {
+            Employee employee = new Employee("shrunkhala", 1000);
+
+            Console.WriteLine(employee.display());
+
+            Employee emp = new Employee("Mayuri", 2000);
+
+            Console.WriteLine(emp.display());
+
+            
+        }
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Q4.
+
+amespace Demo
+{
+    class account
+    {
+        static int getid;
+        int id;
+        String name;
+       double balance;
+
+
+        static account()
+
+{
+
+Console.WriteLine("Somalwar high  school");
+}
+        public account(string name,double balance)
+        {
+            id = ++getid;
+            this.name = name;
+            this.balance = balance;
+        }
+
+        public double deposit(int amt)
+        {
+            balance = balance + amt;
+            return balance;
+        }
+
+        public double withdraw(int amt)
+        {
+            balance = balance - amt;
+            return balance;
+        }
+
+
+        public string display()
+        {
+            return string.Format("id:{0} name:{1} balance:{2}" , id,name, balance);
+        }
+    }
+
+
+    class Account
+    {
+        public static void Main()
+        {
+            account acount = new account("rahul", 1000000);
+
+            Console.WriteLine(acount.withdraw(1000));
+
+            Console.WriteLine(acount.display());
+
+
+            account acc = new account("mayuri", 9999999999);
+            Console.WriteLine(acc.deposit(1));
+            Console.WriteLine(acc.display());
+        }
+    }
+
+}  
+
+Q5.
+
+using System;
+using System.CodeDom;
+
+namespace demo
+{
+    class Employee
+    {
+        int id;
+        static int getid;
+        string name;
+        double salary;
+        //    double netsalary;
+
+        static Employee()
+        {
+            Console.WriteLine("Shrunkhala co-operative bank");
+        }
+
+        public Employee(string name, double salary)
+        {
+            id = ++getid;
+            this.name = name;
+
+            this.salary = salary;
+        }
+
+        public double calculatesal()
+        {
+            double netsalary;
+            netsalary = salary - salary * 0.1;
+            return netsalary;
+        }
+
+        public string display()
+        {
+            double Netsalary = calculatesal();
+            return string.Format("id:{0} name :{1} Netsalary :{2}", id, name, Netsalary);
+        }
+    }
+
+    class Emp
+    {
+        static void Main()
+        {
+            Employee employee = new Employee("shrunkhala", 1000);
+
+            Console.WriteLine(employee.display());
+
+            Employee emp = new Employee("Mayuri", 2000);
+
+            Console.WriteLine(emp.display());
+
+
+        }
+    }
+}
+
+
+
+
