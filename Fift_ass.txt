@@ -1,0 +1,86 @@
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Ado_net{
+  public class Employee
+    {
+        private string _connectionstring;
+         public Employee(IConfiguration configuration) 
+        {
+            _connectionstring = configuration.GetConnectionString("Default");
+            // getconnection of connect path with json and class
+
+        }
+        public void employye()
+        {
+            using (SqlConnection con = new SqlConnection(_connectionstring))
+            {
+
+                SqlCommand cmd = new SqlCommand("select * from Employee", con);
+
+
+
+
+
+                Console.WriteLine("First");
+
+                con.Open();
+               
+                Console.WriteLine("connected");
+    
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+                Console.WriteLine("cool");
+                if (rdr.HasRows)
+                {
+                    while (rdr.Read())
+                    {
+                        Console.WriteLine("{0} {1} {2}", rdr["Id"], rdr["Name"], rdr["Salary"]);
+                    }
+                }
+            }
+
+        }
+    }
+} 
+
+
+using Microsoft.Extensions.Configuration;
+using System.Runtime.InteropServices;
+
+namespace Ado_net
+{
+    internal class Program
+    {
+        private static IConfiguration _configuration;
+        static void Main(string[] args)
+        {
+            GetAppSettingFile();
+            printemployee();
+        }
+
+        public static void GetAppSettingFile()
+        {
+            var builder = new ConfigurationBuilder();
+            builder.SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("jsconfig1.json", optional: false, reloadOnChange: true);
+            _configuration = builder.Build();
+        }
+        
+        public static void printemployee()
+        {
+            Employee emp = new Employee(_configuration);
+            emp.employye();
+        }
+    }
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
